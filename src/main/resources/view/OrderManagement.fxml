@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15.0" style="-fx-padding: 25; -fx-background-color: #f4f7f6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <children>
+                <Text text="Order &amp; Sales Transaction">
+                    <font><Font name="System Bold" size="24.0" /></font>
+                </Text>
+            </children>
+        </HBox>
+        <Separator />
+
+        <HBox spacing="20.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10;">
+            <children>
+                <VBox spacing="5.0">
+                    <Label text="Order ID:" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtOrderId" prefWidth="120.0" promptText="OR01" />
+                </VBox>
+                <VBox spacing="5.0">
+                    <Label text="Customer ID:" style="-fx-font-weight: bold;" />
+                    <ComboBox fx:id="cmbCustomerId" prefWidth="150.0" promptText="Select Customer" />
+                </VBox>
+                <VBox spacing="5.0">
+                    <Label text="Date:" style="-fx-font-weight: bold;" />
+                    <DatePicker fx:id="dpOrderDate" prefWidth="150.0" />
+                </VBox>
+                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                    <Label text="Description / Notes:" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtOrderDesc" promptText="Additional notes about the order..." />
+                </VBox>
+            </children>
+        </HBox>
+
+        <HBox spacing="15.0" alignment="BOTTOM_LEFT" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
+            <children>
+                <VBox spacing="5.0">
+                    <Label text="Product ID:" />
+                    <ComboBox fx:id="cmbProductId" prefWidth="140.0" />
+                </VBox>
+                <VBox spacing="5.0">
+                    <Label text="Product Name:" />
+                    <TextField fx:id="txtProductName" editable="false" prefWidth="200.0" />
+                </VBox>
+                <VBox spacing="5.0">
+                    <Label text="Price:" />
+                    <TextField fx:id="txtUnitPrice" editable="false" prefWidth="100.0" />
+                </VBox>
+                <VBox spacing="5.0">
+                    <Label text="Qty:" />
+                    <TextField fx:id="txtQty" prefWidth="80.0" />
+                </VBox>
+                <Button fx:id="btnAddToCart" onAction="#addToCartOnAction" style="-fx-background-color: #3498db;" text="Add to List" textFill="WHITE" />
+            </children>
+        </HBox>
+
+        <TableView fx:id="tblOrderDetails" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colItemId" prefWidth="100.0" text="Item Code" />
+                <TableColumn fx:id="colItemName" prefWidth="250.0" text="Description" />
+                <TableColumn fx:id="colQty" prefWidth="100.0" text="Qty" />
+                <TableColumn fx:id="colUnitPrice" prefWidth="120.0" text="Unit Price" />
+                <TableColumn fx:id="colTotal" prefWidth="120.0" text="Total" />
+                <TableColumn fx:id="colAction" prefWidth="100.0" text="Action" />
+            </columns>
+        </TableView>
+
+        <HBox spacing="20.0" alignment="CENTER_RIGHT">
+            <children>
+                <VBox alignment="CENTER_RIGHT">
+                    <Label text="Net Total Amount:" style="-fx-font-size: 14px;" />
+                    <Label fx:id="lblTotalAmount" text="Rs. 0.00" textFill="#e74c3c">
+                        <font><Font name="System Bold" size="24.0" /></font>
+                    </Label>
+                </VBox>
+                <Button fx:id="btnPlaceOrder" onAction="#placeOrderOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #27ae60; -fx-font-weight: bold; -fx-font-size: 16px;" text="Place Order" textFill="WHITE" />
+            </children>
+        </HBox>
+    </children>
+</VBox>
